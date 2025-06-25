@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAKYO-X Bags Collection</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #e94560 0%, #00dbde 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* Product Hero Section */
+        .product-hero {
+            background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 0 10%;
+            margin-top: 80px;
+        }
+        
+        .product-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(26,26,46,0.8) 0%, rgba(26,26,46,0.5) 100%);
+        }
+        
+        .product-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .product-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        
+        .product-hero h1 span {
+            display: block;
+            font-weight: 700;
+            color: #00dbde;
+        }
+        
+        .product-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 10%;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #e94560 0%, #00dbde 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e94560;
+            margin-bottom: 20px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #e94560 0%, #00dbde 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 219, 222, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 50px 0 30px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #00dbde;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #00dbde;
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .product-hero, .products {
+                padding: 0 5%;
+            }
+            
+            .product-hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-hero {
+                height: 50vh;
+            }
+            
+            .product-hero h1 {
+                font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            }
+            
+            .product-hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">ZAKYO-X</div>
+    </header>
+    
+    <section class="product-hero">
+        <div class="product-hero-content">
+            <h1>
+                GET MOVING<br>
+                <span>TO GET</span><br>
+                HEALTHIER
+            </h1>
+            <p>Premium bags designed for your active lifestyle</p>
+            <a href="#" class="btn">SHOP COLLECTION</a>
+        </div>
+    </section>
+    
+    <section class="products">
+        <div class="section-title">
+            <h2>Bags Collection</h2>
+            <p>Engineered for durability and style to complement your movement</p>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Gym Bag -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Pro Gym Bag">
+                </div>
+                <div class="product-info">
+                    <h3>Pro Gym Bag</h3>
+                    <p>Premium water-resistant duffle with ventilated shoe compartment and multiple pockets</p>
+                    <div class="product-price">$89.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+            
+            <!-- Backpack -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Active Backpack">
+                </div>
+                <div class="product-info">
+                    <h3>Active Backpack</h3>
+                    <p>Ergonomic backpack with laptop sleeve and quick-access pockets for urban mobility</p>
+                    <div class="product-price">$109.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+            
+            <!-- Crossbody -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Crossbody Bag">
+                </div>
+                <div class="product-info">
+                    <h3>Crossbody Bag</h3>
+                    <p>Compact and lightweight with RFID protection and adjustable strap for all-day comfort</p>
+                    <div class="product-price">$59.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+            
+            <!-- Travel Duffle -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Travel Duffle">
+                </div>
+                <div class="product-info">
+                    <h3>Travel Duffle</h3>
+                    <p>Spacious 40L capacity with reinforced handles and detachable shoulder strap</p>
+                    <div class="product-price">$119.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+            
+            <!-- Waist Pack -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Waist Pack">
+                </div>
+                <div class="product-info">
+                    <h3>Waist Pack</h3>
+                    <p>Minimalist design with moisture-wicking back panel for active use</p>
+                    <div class="product-price">$49.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+            
+            <!-- Weekender -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="ZAKYO-X Weekender">
+                </div>
+                <div class="product-info">
+                    <h3>Weekender Bag</h3>
+                    <p>Premium canvas with leather accents and multiple organizational compartments</p>
+                    <div class="product-price">$139.99</div>
+                    <a href="#" class="btn">ADD TO CART</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="#">Gym Bags</a></li>
+                    <li><a href="#">Backpacks</a></li>
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Product Care</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About ZAKYO-X</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Materials</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 ZAKYO-X. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
